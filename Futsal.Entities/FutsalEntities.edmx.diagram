@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="664ea7a2e34546f080615e8329f4d0a5" Name="Diagram1">
+        <EntityTypeShape EntityType="FutsalModel.ApplicationLog" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="FutsalModel.Application" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FutsalModel.AspNetRole" Width="1.5" PointX="3.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FutsalModel.AspNetUserRole" Width="1.5" PointX="6" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FutsalModel.AspNetUser" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FutsalModel.UserHistory" Width="1.5" PointX="3" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FutsalModel.UserLoginAttempt" Width="1.5" PointX="3" PointY="17.75" IsExpanded="true" />
+        <AssociationConnector Association="FutsalModel.FK_dbo_ApplicationLogs_dbo_Applications_ApplicationId" ManuallyRouted="false" />
+        <AssociationConnector Association="FutsalModel.FK_dbo_ApplicationLogs_dbo_AspNetUsers_ImpersonatedUserId" ManuallyRouted="false" />
+        <AssociationConnector Association="FutsalModel.FK_dbo_ApplicationLogs_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="FutsalModel.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" ManuallyRouted="false" />
+        <AssociationConnector Association="FutsalModel.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="FutsalModel.FK_dbo_UserHistory_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="FutsalModel.FK_dbo_UserLoginAttempts_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

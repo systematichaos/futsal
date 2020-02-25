@@ -1,0 +1,70 @@
+﻿
+@{ 
+    ViewBag.Title = "Himalayan Apex Educational Institute";
+    bool isAuthorizedUser = User.IsInRole("Admin");
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/app")
+
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li> @Html.ActionLink("Himalayan Apex Educational Institute", "Index", "Home", new { @class = "" })</li>
+                    <li>@Html.ActionLink("Blogs", "Blog", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="/Academics/Index">Academics</a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Courses", "Index", "Course")</li>
+                            <li>@Html.ActionLink("Special Courses", "Index", "Course")</li>
+                            <li>@Html.ActionLink("Professors", "Index", "Course")</li>
+                        </ul>
+                    </li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+                @if (isAuthorizedUser == true)
+                {
+                    @Html.Partial("_AdminPartial")
+                }
+            </div>
+            @RenderSection("subnavbar", false)
+
+        </div>
+    </div>
+    <div class="container body-content" style="margin-top:50px;">
+        @RenderBody()
+        <hr />
+
+
+    </div>
+    <footer style="margin-top: 100px;margin-left: 50px;">
+        <p>&copy; @DateTime.Now.Year - @ViewBag.Title</p>
+    </footer>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

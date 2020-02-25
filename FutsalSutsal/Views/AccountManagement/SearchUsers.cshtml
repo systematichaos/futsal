@@ -1,0 +1,71 @@
+﻿@model IEnumerable<haei.client.Models.SearchUserViewModel>
+
+
+<p>
+    @Html.ActionLink("Register new user", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>Username</th>
+        <th>Fullname</th>
+        @*<th>Firstname</th>
+        <th>Lastname</th>
+        <th>MiddleInitial</th>*@
+        <th>Address</th>
+        @*<th>Province</th>
+        <th>City</th>
+        <th>District</th>
+        <th>PostalCode</th>*@
+        <th>IsUserActive</th>
+        <th>Email</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>@item.Username</td>
+        <td>@item.Fullname</td>
+        @*<td>@item.Firstname</td>
+        <td>@item.Lastname</td>
+        <td>@item.MiddleInitial</td>*@
+        <td>@item.FullAddress</td>
+        @*<td>@item.Province</td>
+        <td>@item.City</td>
+        <td>@item.District</td>
+        <td>@item.PostalCode</td>*@
+        <td><button type="button"  class="btn btn-sm @(item.IsUserActive?"btn-success":"btn-danger")">@(item.IsUserActive?"Active":"In-Active")</button></td>
+        <td>@item.Email </td>
+        <td>
+            <ul class="" style="list-style-type:none;">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa-fw fa fa-ellipsis-v"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li>
+                            <a href="@Url.Action("Edit","User",routeValues: new { id = item.Id })">
+                                <i class="fa fa-fw fa-edit" style="color:green;"></i>
+                                <span>Edit</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Details","User",routeValues: new { id = item.Id })">
+                                <i class="fa fa-fw fa-info"></i>
+                                <span>Info</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Delete","User",routeValues: new { id = item.Id })">
+                                <i class="fa fa-fw fa-trash" style="color:red;"></i>
+                                <span>Delete</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                </li>
+            </ul>
+        </td>
+
+    </tr>
+    }
+
+</table>

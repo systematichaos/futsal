@@ -1,0 +1,18 @@
+﻿
+@{
+    Page.Title = "Inactive User";
+    if (HttpContext.Current.User.Identity.IsAuthenticated)
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_LoggedOutLayout.cshtml";
+    }
+}
+
+<div class="text-center">
+    <h2>Error: Inactive User</h2>
+    <p>If you believe this to be incorrect, please contact your Admin  for assistance.</p>
+    <i class="fas fa-exclamation-circle fa-7x error-icon"></i>
+</div>
