@@ -2,7 +2,7 @@ using System;
 
 using Unity;
 
-namespace FutsalSutsal
+namespace Futsal.Web
 {
     /// <summary>
     /// Specifies the Unity configuration for the main container.

@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
-namespace FutsalSutsal.Controllers
+namespace Futsal.Web.Controllers
 {
     [Authorize]
     public class AccountController : Controller

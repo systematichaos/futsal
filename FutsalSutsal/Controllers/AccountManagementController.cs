@@ -11,7 +11,7 @@ using System.Net;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
-namespace haei.client.Controllers
+namespace Futsal.Web.Controllers
 {
     //[Authorize(Roles = "Admin,Manager")]
     public class AccountManagementController : Controller

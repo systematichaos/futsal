@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Futsal.Web.Models.SearchUserRoleViewModel>
+<br />
+<br />
+<p>
+    @Html.ActionLink("Create New", "ConfigureUserToRole")
+</p>
+<table class="table">
+    <tr>
+        <th>Username</th>
+        <th>Full name</th>
+        <th>Role</th>
+        <th>Role Assigned By User</th>
+        <th>Role Assigned Date</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Username</td>
+            <td> @item.Fullname</td>
+            <td> @item.Role</td>
+            <td> @item.RoleAssignedByUser</td>
+            <td>@item.RoleAssignedDate.ToShortDateString()</td>
+            <td>
+
+                <ul class="" style="list-style-type:none;">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa-fw fa fa-ellipsis-v"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-left">
+                            <li>
+                                <a href="@Url.Action("EditUserRole","AccountManagement",routeValues: new { userRoleId = item.UserRoleId })">
+                                    <i class="fa fa-fw fa-edit" style="color:green;"></i>
+                                    <span>Edit</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("DeleteUserRole","AccountManagement",routeValues: new {  userRoleId = item.UserRoleId })">
+                                    <i class="fa fa-fw fa-trash" style="color:red;"></i>
+                                    <span>Delete</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                </ul>
+
+            </td>
+        </tr>
+    }
+
+</table>

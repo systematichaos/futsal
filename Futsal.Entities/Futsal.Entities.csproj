@@ -62,6 +62,12 @@
     <Compile Include="AspNetUser.cs">
       <DependentUpon>FutsalEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="AspNetUserClaim.cs">
+      <DependentUpon>FutsalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserLogin.cs">
+      <DependentUpon>FutsalEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="AspNetUserRole.cs">
       <DependentUpon>FutsalEntities.tt</DependentUpon>
     </Compile>

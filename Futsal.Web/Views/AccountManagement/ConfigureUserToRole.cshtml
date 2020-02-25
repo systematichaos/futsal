@@ -1,0 +1,50 @@
+﻿@model Futsal.Web.Models.UserRoleViewModel
+
+@Scripts.Render("~/bundles/user-role")
+
+
+
+@Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>Configure User To the Roles</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="alert alert-danger  text-center"  data-error-message-container="" hidden>
+        <strong>Error:</strong> <p>Something went wrong while assigning role to user, please refresh the page and try again.</p>
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.UserId, htmlAttributes: new { })
+        @Html.DropDownListFor(m => m.UserSelectListItems,  // store selected value in reason field
+                             Model.UserSelectListItems,  // list of values
+                             "Please select user",
+                             new { @class = "form-control center-block no-float", @style = "margin-left: 0px;", @data_ddl_users = ""})
+
+        @Html.ValidationMessageFor(model => model.UserId, "", new { @class = "text-danger" })
+
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.RoleId, htmlAttributes: new { })
+        @Html.DropDownListFor(m => m.RoleSelectListItems,  // store selected value in reason field
+                             Model.RoleSelectListItems,  // list of values
+                             "Please select role",
+                             new { @class = "form-control center-block no-float", @style = "margin-left: 0px;", @data_ddl_roles = ""})
+        @Html.ValidationMessageFor(model => model.RoleId, "", new { @class = "text-danger" })
+
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Configure" class="btn btn-default" name="btnConfigureUserRole" />
+        </div>
+    </div>
+</div>
+
+
+
+
+

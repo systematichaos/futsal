@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Futsal.Web.Models.RoleViewModel>
+<style>
+    .section {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+</style>
+<div class="row alert-info section">
+    <h3 class="text-center">Application Roles</h3>
+</div>
+<div class="row  section">
+    <a href="@Url.Action("AddRole", "AccountManagement")">
+        <i class="fa fa-fw fa-plus fa-2x" style="color:forestgreen;"></i>
+        <span style="font-weight:bold;">Add Role</span>
+    </a>
+</div>
+<div class="row section">
+    <table class="table table-condensed table-responsive table-hover">
+        <tr>
+            <th> Name</th>
+            <th>Is Deleted</th>
+            <th>Actions</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+               @(item.IsDeleted==true?"Deleted":"Active")
+            </td>
+            <td>
+                <ul class="" style="list-style-type:none;">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa-fw fa fa-ellipsis-v"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-left">
+                            <li>
+                                <a href="@Url.Action("EditRole","AccountManagement",routeValues: new { id = item.Id })">
+                                    <i class="fa fa-fw fa-edit" style="color:green;"></i>
+                                    <span>Edit</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("DeleteRole","AccountManagement",routeValues: new { id = item.Id })">
+                                    <i class="fa fa-fw fa-trash" style="color:red;"></i>
+                                    <span>Delete</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+        }
+
+    </table>
+</div>

@@ -8,7 +8,7 @@ using System;
 using FutsalSutsal.Models;
 using FutsalSutsal.Identity;
 
-namespace FutsalSutsal
+namespace Futsal.Web
 {
     public partial class Startup
     {
