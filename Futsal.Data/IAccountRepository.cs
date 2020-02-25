@@ -3,13 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Threading.Tasks;
-using System.Web;
 
 /*RELATED TO USER ROLES/ USERS IDENTITY STUFFS*/
 namespace Futsal.Data
 {
 
-        public interface IIdentityRepository
+    public interface IIdentityRepository
     {
         Task<IEnumerable<AspNetRole>> GetAllRolesAsync();
         Task<bool> CreateRoleAsync(string roleName,int createdByUser);

@@ -19,9 +19,11 @@ namespace Futsal.Entities
         {
             this.ApplicationLogs = new HashSet<ApplicationLog>();
             this.ApplicationLogs1 = new HashSet<ApplicationLog>();
+            this.AspNetUserClaims = new HashSet<AspNetUserClaim>();
             this.AspNetUserRoles = new HashSet<AspNetUserRole>();
             this.UserHistories = new HashSet<UserHistory>();
             this.UserLoginAttempts = new HashSet<UserLoginAttempt>();
+            this.AspNetUserLogins = new HashSet<AspNetUserLogin>();
         }
     
         public int Id { get; set; }
@@ -60,10 +62,14 @@ namespace Futsal.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ApplicationLog> ApplicationLogs1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AspNetUserClaim> AspNetUserClaims { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AspNetUserRole> AspNetUserRoles { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserHistory> UserHistories { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserLoginAttempt> UserLoginAttempts { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AspNetUserLogin> AspNetUserLogins { get; set; }
     }
 }

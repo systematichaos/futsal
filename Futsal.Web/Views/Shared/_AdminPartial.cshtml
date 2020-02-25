@@ -1,0 +1,46 @@
+﻿@{
+    bool Admin = true;// User.IsInRole("Admin");
+    bool Subrep = true;// User.IsInRole("Professor");
+}
+
+
+@if (Request.IsAuthenticated && Admin)
+{
+    <ul class="nav navbar-nav">
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown"><span>Administration</span></a>
+            <ul class="dropdown-menu dropdown-menu-left">
+                @if (Admin)
+                {
+                    <li>
+                        <a href="@Url.Action("SearchRoles","AccountManagement")">
+                            <i class="fa fa-fw fa-cog login-nav-icon"></i>
+                            <span>Configure Roles</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("SearchUserRoles","AccountManagement")">
+                            <i class="fa fa-fw fa-cog fa-rotate-left"></i>
+                            <span>Configure User Roles</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("SearchUsers", "AccountManagement")">
+                            <i class="fa fa-fw fa-users login-nav-icon"></i>
+                            <span>Configure Users</span>
+                        </a>
+                    </li>
+                }
+                @if (Admin || Subrep)
+                {
+                    <li>
+                        <a href="@Url.Action("Search","FieldProfessional")">
+                            <i class="fa fa-fw fa-user-times login-nav-icon"></i>
+                            <span>Configure Field Professional</span>
+                        </a>
+                    </li>
+                }
+            </ul>
+        </li>
+    </ul>
+}

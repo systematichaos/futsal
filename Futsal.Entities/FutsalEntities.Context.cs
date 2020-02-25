@@ -30,10 +30,12 @@ namespace Futsal.Entities
         public virtual DbSet<ApplicationLog> ApplicationLogs { get; set; }
         public virtual DbSet<Application> Applications { get; set; }
         public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
+        public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
         public virtual DbSet<AspNetUserRole> AspNetUserRoles { get; set; }
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<UserHistory> UserHistories { get; set; }
         public virtual DbSet<UserLoginAttempt> UserLoginAttempts { get; set; }
+        public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
     
         public virtual int UserRole_Assign(Nullable<int> userId, string roleName, Nullable<int> loggedInUserId, ObjectParameter result)
         {

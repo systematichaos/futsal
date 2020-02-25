@@ -1,0 +1,42 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- standard futsal  meta tags -->
+    <meta http-equiv="CACHE-CONTROL" content="NO-CACHE" />
+    <meta http-equiv="PRAGMA" content="NO-CACHE" />
+    <meta name="ROBOTS" content="NONE" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FSVendor-@Page.Title</title>
+    @*@Html.Partial("~/Views/Shared/_FavIcons.cshtml")*@
+
+    @*@Styles.Render("~/Content/general-css")
+    @Styles.Render("~/Content/logged-out-css")*@
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+ 
+
+    @RenderSection("scripts", required: false)
+    @RenderSection("styles", required: false)
+
+    </head>
+<body>
+    <noscript>
+        <p class="text-center">
+            For this site to function, we required javascript to be enabled.
+            Here are the <a href="https://www.enable-javascript.com/" target="_blank">
+                instructions how to enable JavaScript in your web browser
+            </a>.
+        </p>
+    </noscript>
+    <nav class="navbar navbar-default">
+    </nav>
+    <div class="container-fluid">
+        @RenderBody()
+    </div>
+</body>
+</html>

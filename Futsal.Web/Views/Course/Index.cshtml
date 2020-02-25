@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Futsal.Web.Models.SearchCourseViewModel>
+
+
+<div class="row alert-info section">
+    <h3 class="text-center">Apex courses</h3>
+</div>
+
+<p>
+    @Html.ActionLink("Create New", "CreateCourse")
+</p>
+<table class="table table-condensed table-striped">
+    <tr>
+        <th>@Html.ActionLink("Course Name", "Index", new { sortOrder = ViewBag.CourseNameSortParm })</th>
+        <th>@Html.ActionLink("Instructor", "Index", new { sortOrder = ViewBag.CourseInstructorSortParm })</th>
+        <th>@Html.ActionLink("Duration", "Index", new { sortOrder = ViewBag.CourseDurationSortParm })</th>
+        <th>@Html.ActionLink("Start Date", "Index", new { sortOrder = ViewBag.CourseStartDateSortParm })</th>
+        <th>@Html.ActionLink("End Date", "Index", new { sortOrder = ViewBag.CourseEndDateSortParm })</th>
+        <th>@Html.ActionLink("Status", "Index", new { sortOrder = ViewBag.CourseStatusSortParm })</th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.CourseName</td>
+            <td>@item.CourseInstructor</td>
+            <td>@item.CourseDuration</td>
+            <td> @item.CourseStartDate</td>
+            <td> @item.CourseEndDate</td>
+            <td>@item.CourseStatus</td>
+            <td>
+                <ul class="" style="list-style-type:none;">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa-fw fa fa-ellipsis-v"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-left">
+                            <li>
+                                <a href="@Url.Action("EditCourse","Course",routeValues: new { id = item.Id })">
+                                    <i class="fa fa-fw fa-edit" style="color:green;"></i>
+                                    <span>Edit</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("DeleteCourse","Course",routeValues: new { id = item.Id })">
+                                    <i class="fa fa-fw fa-trash" style="color:red;"></i>
+                                    <span>Delete</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                </ul>
+
+            </td>
+        </tr>
+    }
+
+</table>
